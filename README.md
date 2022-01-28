@@ -6,12 +6,12 @@ __``This ReadMe explain about CSS Flexbox, It's very useful to build the layout 
 
 ### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" height="35" align="center"/> CSS Flexbox
 
-__The flexbox or flexible box model in CSS is a one-dimensional layout model that has flexible and efficient layouts with distributed spaces among items to control 
-their alignment structure ie., it is a layout model that provides an easy and clean way to arrange items within a container. Flexbox can be useful for creating 
-small-scales layouts & is responsive and mobile-friendly.__
+**The flexbox or flexible box model in CSS is a one-dimensional layout model that has flexible and efficient layouts with distributed spaces among items to control 
+their alignment structure. It's a layout model that provides an easy and clean way to arrange items within a container. Flexbox can be useful for creating 
+small-scales layouts is responsive and mobile-friendly.**
 
 <div align="center">
-  <h2>:bricks: Container Properties</h2>
+  <h2>:package: Container Properties</h2>
 </div>
 
 ### :fire: Display 
@@ -24,7 +24,7 @@ small-scales layouts & is responsive and mobile-friendly.__
 }
 ```
 
-**``NOTE: CSS columns have no effect on a flex container.``**
+***NOTE: CSS columns have no effect on a flex container.***
 
 ---
 
@@ -149,10 +149,115 @@ the cross-axis perpendicular to the main-axis._**
 }
 ```
 
+**_The behavior could be thought of as a minimum gutter,as if the gutter is bigger some how because of something like <br> ``justify-content: space-between;`` 
+then the gap will only take effect if that space would end up smaller. It is not exclusively for flexbox , gap works in grid and multi-colum layout as well._**
 
+<br>
 
+<div align="center">
+  <h2>:jigsaw: Items Properties</h2>
+</div>
 
+### :sparkles: Order
 
+**_By default, flex items are laid out in the source order. However, the order property controls the order in which they appear in the flex container._**
 
+```CSS
+.item {
+    order: 5;
+}
+```
 
+**_Items with the same order revert to source order._**
 
+---
+
+### :sparkles:Flex grow
+
+**_This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. I dictates what amount of the 
+avaliable space inside the flex container the item should take up._** <br>
+
+**_If all items have ``flex-grow`` set to 1, the remaining space in the container will be distribuited equally to all children. If one of the children has 
+a value of 2, that child would take up twice as much of the space either one of the others or it'll try, at least._**
+
+```CSS
+.ietms {
+    flex-grow: 4;
+}
+```
+
+**_Negative numbers are invalid._**
+
+---
+
+### :sparkles: Flex shrink
+
+**_This is define the ability for a flex item to shrink if necessary._**
+
+```CSS
+.item {
+    flex-shrink: 3;
+}
+```
+
+**_Negative numbers are invalid._**
+
+---
+
+### :sparkles: Flex basis
+
+**_This define the default size of an element before the remaining space is distribuited. It can be a length ``( "20%", "5rem", etc... )`` or a keyword. 
+The auto keyword means "look at my width or height property" which was temporarily done by the main-size keyword until deprecated. The content keyword 
+means size it based on the on the item's content, this keyword isn't well supported yet, so it's hard to test and harder to know what its brethren 
+max-content, min-content and fit-content do._**
+
+```CSS
+.items {
+    flex-basis: auto;
+}
+```
+
+- **_If set to ``0`` the extra space around content isn't factored in._** <br> 
+- **_If set to ``auto`` the extra space is distributed based on its flex-grow value._**
+
+---
+
+### :sparkles: Flex
+
+**_This is the shorthand for ``flex-grow``, ``flex-shrink`` and ``flex-basis`` combined. The second and third parameters are optional. The default 
+is ``0 1 auto`` but if you set it with a single number value, like ``flex: 5;`` that changes the ``flex-basis`` to ``0%``_ so it's like setting 
+``flex-grow: 5;``, ``flex-shrink: 1;`` and ``flex-basis: 0%``.**
+
+```CSS
+.item {
+    flex: none / flex-grow / flex-shrink / flex-basis ;
+}
+```
+
+**_It's recommended that you use this shorthand property rather than set the individual properties. <br>
+The shorthand sets the other values intelligently._**
+
+---
+
+### :sparkles: Flex self
+
+**_This is allows the default alignment or the one specified by align-items to be overridden for individual flex items. Please see the ``align-items`` 
+explanation to understand the available values._**
+
+```CSS
+.items {
+    align-self: auto / flex-start / flex-end / center / baseline / stretch ;
+}
+```
+
+**_Note that ``float``, ``clear`` and ``vertical-align`` have no effect on a flexitem._**
+
+<br>
+
+:book: **For more informations about that one, you can see [CSS tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)**
+
+<div align="right">
+    :octocat: Made by Mateus Barros :rocket:
+</div>
+
+---
